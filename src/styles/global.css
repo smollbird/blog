@@ -1,0 +1,16 @@
+#html-page[data-theme='light'] {
+    --color: #494949;
+    --color-active: #080808;
+    --color-text:#b7b7b7;
+
+    --background-light: #dbdada;
+    --background-active-ight: #dbdada;
+
+    --nav-background-light: #d1d0d0;
+    --nav-background-active-light: #828080;
+}
+
+#html-page[data-theme='dark'] {
+    --background-dark: #262626;
+    --background-active-dark: #131313;
+}
