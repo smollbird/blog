@@ -30,10 +30,7 @@
         margin: 0 10%;
         display: flex;
         align-items: center;
-        .left {
-            .description {
-            }
-        }
+
         .filings {
             margin: 0 auto;
             a,

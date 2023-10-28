@@ -16,7 +16,7 @@ import Footer from './footer/index.vue';
 </script>
 <style scoped lang="less">
 .home {
-    .main {
+    & > .main {
         margin: 0 10%;
     }
 }

@@ -17,12 +17,15 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import Article from '@/components/article/index.vue';
 import HotSearchList from '@/components/hotSearchList/index.vue';
 import Tags from '@/components/tags/index.vue';
-import type { Article } from '@/types/index.d.ts';
+import { ArticleType } from '@/types/index.d.ts';
 
-const articles:<Article[]> = [
+const router = useRouter();
+
+const articles: Article[] = [
     {
         title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
         content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat molestias nihil quasi optio maiores
@@ -47,7 +50,7 @@ const articles:<Article[]> = [
         createTime: '2023-10-28 21:36'
     },
     {
-        title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+        title: 'Lorem ',
         content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat molestias nihil quasi optio maiores
             incidunt inventore omnis ut exercitationem sapiente, provident facere sequi magnam tempore cum aut iste sunt
             nesciunt.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat molestias nihil quasi optio maiores
@@ -300,14 +303,20 @@ const articles:<Article[]> = [
         createTime: '2023-10-28 21:36'
     }
 ];
+
 const handlerEntry = (value) => {
-    router.push('/detail');
+    router.push({
+        path: '/detail',
+        query:{
+            ...value
+        }
+    });
 };
 </script>
 
 <style scoped lang="less">
 .main {
-    margin: 0 10% 20px;
+    margin: 0 0 20px;
     display: flex;
     .center {
         flex: 2;

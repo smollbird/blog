@@ -1,41 +1,41 @@
 <template>
     <div class="article-item" @click="handler">
-        <h4 class="title">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
+        <h4 class="title">{{ article.title }}</h4>
         <p class="content">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat molestias nihil quasi optio maiores
-            incidunt inventore omnis ut exercitationem sapiente, provident facere sequi magnam tempore cum aut iste sunt
-            nesciunt.
+            {{ article.description }}
         </p>
         <div class="article-footer">
             <div class="tags">
-                <!-- <i class="iconfont icon-huati"></i> -->
-                <span class="tag">html</span>
-                <span class="tag">css</span>
-                <span class="tag">javascript</span>
+                <span v-for="tag in article.tags" class="tag">{{ tag }}</span>
             </div>
             <div class="operation-bar">
-                <span class="like"><i class="iconfont icon-aixin"></i>10</span>
-                <span class="comment"><i class="iconfont icon-pinglun"></i>20</span>
-                <span class="exposure"><i class="iconfont icon-yanjing"></i>30</span>
+                <span @click="handlerLike" class="like"><i class="iconfont icon-aixin"></i>{{ article.like }}</span>
+                <span class="comment"><i class="iconfont icon-pinglun"></i>{{ article.comment }}</span>
+                <span class="exposure"><i class="iconfont icon-yanjing"></i>{{ article.saw }}</span>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import type { Article } from '@/types/index.d.ts';
-const router = useRouter();
-type Props{
-    article:Article;
-}
-const props = defineProps<Props>();
+import type { Ref } from 'vue';
+import { ref } from 'vue'
+type Props = {
+    article: Article;
+};
+
+const { article } = defineProps<Props>();
 const emits = defineEmits('entry');
 
 const handler = () => {
-    emits('entry',props.article)
-    router.push('/detail')
+    emits('entry', article);
 };
+
+const isLike = ref(false);
+const handlerLike = ()=>{
+    isLike.value = !isLike.value;
+}
 </script>
 
 <style scoped lang="less">
