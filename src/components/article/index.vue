@@ -9,33 +9,38 @@
                 <span v-for="tag in article.tags" class="tag">{{ tag }}</span>
             </div>
             <div class="operation-bar">
-                <span @click="handlerLike" class="like"><i class="iconfont icon-aixin"></i>{{ article.like }}</span>
-                <span class="comment"><i class="iconfont icon-pinglun"></i>{{ article.comment }}</span>
-                <span class="exposure"><i class="iconfont icon-yanjing"></i>{{ article.saw }}</span>
+                <span data-value="like" class="like"><i class="iconfont icon-aixin"></i>{{ article.like }}</span>
+                <span data-value="comment" class="comment"><i class="iconfont icon-pinglun"></i>{{ article.comment }}</span>
+                <span data-value="exposure" class="exposure"><i class="iconfont icon-yanjing"></i>{{ article.saw }}</span>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import type { Article } from '@/types/index.d.ts';
+import type { ArticleType } from '@/types/index.d.ts';
 import type { Ref } from 'vue';
-import { ref } from 'vue'
+import { ref } from 'vue';
 type Props = {
-    article: Article;
+    article: ArticleType;
 };
 
 const { article } = defineProps<Props>();
-const emits = defineEmits('entry');
-
-const handler = () => {
+const emits = defineEmits(['entry']);
+console.log(article,'article');
+const handler = function (evt: Event) {
+    if(evt.target instanceof HTMLSpanElement){
+        handlerLike(evt);
+        return;
+    }
     emits('entry', article);
 };
 
-const isLike = ref(false);
-const handlerLike = ()=>{
+const isLike:Ref<boolean> = ref(false);
+const handlerLike = (evt: Event) => {
+    console.log(evt);
     isLike.value = !isLike.value;
-}
+};
 </script>
 
 <style scoped lang="less">

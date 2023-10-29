@@ -1,6 +1,7 @@
 <template>
     <div class="login">
-        <img src="@/assets/svg/logo.svg" alt="" class="avatar" />
+        <!-- <img src="@/assets/svg/logo.svg" alt="" class="avatar" /> -->
+        <avatar alt="" :src="img" :size="32" shape="circle"></avatar>
         <p class="username">hsc</p>
         <i class="iconfont icon-down"></i>
         <ul class="downtab">
@@ -11,7 +12,11 @@
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Avatar from '@/components/h/avatar/index.vue';
+import img from '@/assets/svg/logo.svg';
+// import { reactive } from 'vue';
+</script>
 
 <style scoped lang="less">
 .login {

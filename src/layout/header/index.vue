@@ -5,15 +5,15 @@
                 <img src="@/assets/vue.svg" alt="logo" />
             </div>
 
-            <Nav></Nav>
+            <nav></nav>
 
-            <Login></Login>
+            <login></login>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import Nav from '@/components/nav/index.vue';
+import Nav from '@/components/h/nav/index.vue';
 import Login from '@/components/login/index.vue';
 </script>
 

@@ -2,14 +2,14 @@
     <div class="main">
         <div class="center">
             <div class="article-list">
-                <Article @entry="handlerEntry" v-for="article in articles" :article="article"></Article>
+                <article @entry="handlerEntry" v-for="article in articles" :article="article"></article>
             </div>
         </div>
 
         <div class="right">
-            <Tags></Tags>
+            <tags></tags>
 
-            <HotSearchList></HotSearchList>
+            <hot-search-list></hot-search-list>
 
             <div class="calendar"></div>
         </div>
@@ -21,11 +21,11 @@ import { useRouter } from 'vue-router';
 import Article from '@/components/article/index.vue';
 import HotSearchList from '@/components/hotSearchList/index.vue';
 import Tags from '@/components/tags/index.vue';
-import { ArticleType } from '@/types/index.d.ts';
+import type { ArticleType } from '@/types/index.d.ts';
 
 const router = useRouter();
 
-const articles: Article[] = [
+const articles: ArticleType[] = [
     {
         title: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
         content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat molestias nihil quasi optio maiores
@@ -304,7 +304,7 @@ const articles: Article[] = [
     }
 ];
 
-const handlerEntry = (value) => {
+const handlerEntry = (value: ArticleType) => {
     router.push({
         path: '/detail',
         query:{
