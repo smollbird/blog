@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 
 enum Size {
     small = 24,
@@ -28,6 +28,9 @@ const props = withDefaults(defineProps<AvatarProps>(), {
     size: 'default'
 });
 const size = computed(() => {
+    // if(typeof props.size === 'string'){
+    //     return Size[props.size as string]
+    // }
     return Size[props.size] || props.size;
 });
 

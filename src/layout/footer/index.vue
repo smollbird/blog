@@ -3,8 +3,12 @@
         <div class="footer-container">
             <div class="description">个人博客</div>
             <div class="filings">
-                <a href="#">服务协议</a><a href="#">隐私政策</a><span>浙ICP备2022000356号-3</span
-                ><span>浙公网安备 33011002011859号</span>
+                <a href="#">服务协议</a><a href="#">隐私政策</a>
+                <span
+                    ><a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener noreferrer"
+                        >赣ICP备2023007216号</a
+                    ></span
+                >
             </div>
 
             <!-- <div class="friendly-links">

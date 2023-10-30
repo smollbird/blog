@@ -13,11 +13,13 @@
                 <span data-value="comment" class="comment"><i class="iconfont icon-pinglun"></i>{{ article.comment }}</span>
                 <span data-value="exposure" class="exposure"><i class="iconfont icon-yanjing"></i>{{ article.saw }}</span>
             </div>
+            <Button type="primary" :loading="false" size="small"></Button>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import Button from '@/components/h/button/index.vue';
 import type { ArticleType } from '@/types/index.d.ts';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
