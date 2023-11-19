@@ -2,12 +2,12 @@
     <div class="main">
         <div class="center">
             <div class="article-list">
-                <article @entry="handlerEntry" v-for="article in articles" :article="article"></article>
+                <Article @entry="handlerEntry" v-for="article in articles" :article="article"></Article>
             </div>
         </div>
 
         <div class="right">
-            <tags></tags>
+            <Tags></Tags>
 
             <hot-search-list></hot-search-list>
 

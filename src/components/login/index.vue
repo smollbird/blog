@@ -5,9 +5,9 @@
         <p class="username">hsc</p>
         <i class="iconfont icon-down"></i>
         <ul class="downtab">
-            <li>个人中心</li>
-            <li>设置中心</li>
-            <li>退出登陆</li>
+            <li @click="handlerToPage('peopleCenter')">个人中心</li>
+            <li @click="handlerToPage('settings')">设置中心</li>
+            <li @click="handlerToPage('logout')">退出登陆</li>
         </ul>
     </div>
 </template>
@@ -15,7 +15,14 @@
 <script setup lang="ts">
 import Avatar from '@/components/h/avatar/index.vue';
 import img from '@/assets/svg/logo.svg';
+import { useRouter } from 'vue-router';
 // import { reactive } from 'vue';
+const router = useRouter();
+const handlerToPage = function(type: string){
+    if(type === 'peopleCenter'){
+        router.push('/user')
+    }
+}
 </script>
 
 <style scoped lang="less">
@@ -48,6 +55,7 @@ import img from '@/assets/svg/logo.svg';
         text-align: center;
         border-radius: 4px;
         box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
         li {
             margin: 10px 0;
         }
