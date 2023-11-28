@@ -46,6 +46,7 @@ console.log(props, 'props');
         display: inline-block;
         width: 1px;
         height: 1em;
+        vertical-align: middle;
         border-left: 1px #dcdfe6 var(--border-style);
     }
     .content {

@@ -3,7 +3,7 @@
         <div class="operation">
             <template v-for="item in operator" :key="item">
                 <hDivider v-if="item === 'divider'" direction="vertical"></hDivider>
-                <hButton style="padding: 0 2px" v-else>{{ item }}</hButton>
+                <hButton v-else>{{ item }}</hButton>
             </template>
         </div>
         <div class="content" ref="editor" contenteditable></div>
